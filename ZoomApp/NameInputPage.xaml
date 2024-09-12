@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZoomApp.NameInputPage"
+             Title="Enter Your Name">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Enter Your Backstage Name"
+               FontSize="18"
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="UserNameEntry"
+               Placeholder="Your name"
+               WidthRequest="300"
+               HorizontalOptions="Center" />
+
+        <Button Text="Join"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="250"
+                HeightRequest="50"
+                Clicked="OnContinueClicked" />
+    </VerticalStackLayout>
+
+</ContentPage>

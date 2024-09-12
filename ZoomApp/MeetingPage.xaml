@@ -1,0 +1,118 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZoomApp.MeetingPage"
+             Title="Meeting Page">
+
+    <!-- Single Menu Icon -->
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Menu"
+                     Order="Primary"
+                     Priority="0"
+                     IconImageSource="menu.png"
+                     Clicked="OnMenuClicked" />
+    </ContentPage.ToolbarItems>-->
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!-- Grid Layout for Welcome Label and ComboBox -->
+        <Grid ColumnDefinitions="*, Auto">
+            <!-- Welcome Label -->
+            <Label x:Name="WelcomeLabel"
+                   FontSize="24"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   Text="Hello, Rashid! Welcome to the meeting."
+                   Grid.Column="0" />
+
+            <!-- ComboBox (Picker) for Menu at the end -->
+            <Picker x:Name="MenuPicker"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Title="Menu"
+                    Grid.Column="1">
+                <!-- Sample Menu Items -->
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Select an Option</x:String>
+                        <x:String>Settings</x:String>
+                        <x:String>Help</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+
+        <!-- Horizontal Stack Layout for Boxes -->
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+            <!-- Participants Box -->
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <!-- Text Above the Box -->
+                <Label Text="Participants"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Value Inside the Box -->
+                <Frame BorderColor="Black" CornerRadius="5" Padding="10" WidthRequest="250" HeightRequest="200">
+                    <Grid>
+                        <!-- Background Image -->
+                        <Image Source="particepents.png" Aspect="AspectFill" Opacity="0.2" />
+                        <!-- Value centered inside the box -->
+                        <Label Text="10"
+                               FontSize="30"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Camera Box -->
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <!-- Text Above the Box -->
+                <Label Text="Camera"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Value Inside the Box -->
+                <Frame BorderColor="Black" CornerRadius="5" Padding="10" WidthRequest="250" HeightRequest="200">
+                    <Grid>
+                        <Image Source="camers.png" Aspect="AspectFill" Opacity="0.2" />
+                        <Label Text="5"
+                               FontSize="30"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Hands Raised Box -->
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <!-- Text Above the Box -->
+                <Label Text="Hands Raised"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Value Inside the Box -->
+                <Frame BorderColor="Black" CornerRadius="5" Padding="10" WidthRequest="250" HeightRequest="200">
+                    <Grid>
+                        <Image Source="hands.png" Aspect="AspectFill" Opacity="0.2" />
+                        <Label Text="5"
+                               FontSize="30"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

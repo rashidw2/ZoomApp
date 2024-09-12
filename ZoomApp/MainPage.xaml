@@ -1,0 +1,47 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZoomApp.MainPage"
+             Title="Join Zoom Meeting">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <!-- Input for Zoom Link -->
+        <Label Text="Enter Zoom Meeting Link" 
+               FontSize="18" 
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="MeetingLinkEntry"
+               Placeholder="Zoom meeting link"
+               WidthRequest="300"
+               HorizontalOptions="Center"
+               Keyboard="Url" />
+
+        <!-- HorizontalStackLayout for Checkbox and Label -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <CheckBox x:Name="CameraCheckBox"
+                      VerticalOptions="Center" />
+            <Label Text="Log in to Zoom"
+                   VerticalOptions="Center"
+                   Padding="5,0,0,0" />
+            <!-- Add padding for spacing between checkbox and label -->
+        </HorizontalStackLayout>
+
+        <!-- Button to Join the Meeting -->
+        <Button Text="OK"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Red"
+                WidthRequest="250"
+                HeightRequest="50"
+                Clicked="OnJoinMeetingClicked" />
+        <Button Text="Join Zoom"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Gray"
+                WidthRequest="250"
+                HeightRequest="50"
+                Clicked="OnJoinMeetingClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
