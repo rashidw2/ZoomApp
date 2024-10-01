@@ -1,4 +1,7 @@
-﻿namespace ZoomApp;
+﻿using ZoomApp.Interfaces;
+using ZoomApp.Services;
+
+namespace ZoomApp;
 
 public static class MauiProgram
 {
@@ -13,6 +16,14 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+		#if windows
+				 builder.Services.AddTransient<IZoomService, WindowsZoomService>();
+			builder.ConfigureMauiHandlers(handlers =>
+			{
+				handlers.AddHandler<ZoomMeetingView, ZoomMeetingViewHandler>();
+			});
+		#endif
+
+        return builder.Build();
 	}
 }

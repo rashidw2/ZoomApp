@@ -1,47 +1,36 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZoomApp.MainPage"
-             Title="Join Zoom Meeting">
+             x:Class="ZoomApp.MainPage">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
-
-        <!-- Input for Zoom Link -->
-        <Label Text="Enter Zoom Meeting Link" 
-               FontSize="18" 
-               HorizontalOptions="Center" />
-
-        <Entry x:Name="MeetingLinkEntry"
-               Placeholder="Zoom meeting link"
-               WidthRequest="300"
-               HorizontalOptions="Center"
-               Keyboard="Url" />
-
-        <!-- HorizontalStackLayout for Checkbox and Label -->
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <CheckBox x:Name="CameraCheckBox"
-                      VerticalOptions="Center" />
-            <Label Text="Log in to Zoom"
-                   VerticalOptions="Center"
-                   Padding="5,0,0,0" />
-            <!-- Add padding for spacing between checkbox and label -->
-        </HorizontalStackLayout>
+    <StackLayout Padding="20" Spacing="10">
 
         <!-- Button to Join the Meeting -->
-        <Button Text="OK"
+        <Button Text="Join Selected Meeting"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 BackgroundColor="Red"
                 WidthRequest="250"
                 HeightRequest="50"
                 Clicked="OnJoinMeetingClicked" />
-        <Button Text="Join Zoom"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                BackgroundColor="Gray"
-                WidthRequest="250"
-                HeightRequest="50"
-                Clicked="OnJoinMeetingClicked" />
 
-    </VerticalStackLayout>
+        <!-- List of Scheduled Meetings -->
+        <Label Text="Scheduled Meetings" FontSize="18" HorizontalOptions="Center" />
+        <ListView x:Name="MeetingsListView" ItemsSource="{Binding Meetings}" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding MeetingTopic}" FontSize="16" />
+                            <Label Text="{Binding StartTime}" FontSize="12" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Placeholder for Zoom meeting UI -->
+        <BoxView x:Name="MeetingView" HeightRequest="300" IsVisible="False" Color="LightGray"/>
+
+    </StackLayout>
 
 </ContentPage>

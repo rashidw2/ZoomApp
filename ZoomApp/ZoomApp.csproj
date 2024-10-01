@@ -57,6 +57,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Reference Include="ZoomSDK">
+			<HintPath>Platforms/Windows/ZoomSdk/sdk.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\menu.png" />
 	</ItemGroup>
 
@@ -73,6 +79,10 @@
 	  <MauiXaml Update="NameInputPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Platforms\Windows\ZoomSdk\" />
 	</ItemGroup>
 
 </Project>
